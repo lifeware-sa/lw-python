@@ -1,5 +1,6 @@
-import json
 import click
+import json
+import textract
 
 @click.group()
 def cli():
@@ -11,14 +12,10 @@ def cli():
 def textract_to_markdown(input, output):
     try:
         with open(input, 'r') as json_file:
-            data = json.load(json_file)
-        
-        with open(output, 'w') as md_file:
-            md_file.write("# Extracted Content\n\n")
-            for key, value in data.items():
-                md_file.write(f"## {key}\n\n{value}\n\n")
+            markdown_text = textract.textract_json_result_to_md(json.load(json_file))
 
-        print(f"Markdown file successfully created at {output}")
+        with open(output, 'w') as md_file:
+            md_file.write(markdown_text)
 
     except Exception as e:
         print(f"An error occurred: {e}")
