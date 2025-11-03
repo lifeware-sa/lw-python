@@ -1,7 +1,7 @@
 import json
 import click
 
-@click.command((name='textract-to-md'))
+@click.command(name='textract-to-md')
 @click.argument('from', type=click.Path(exists=True))
 @click.argument('to', type=click.Path())
 def textract_to_markdown(input, output):
