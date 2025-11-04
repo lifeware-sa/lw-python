@@ -1,0 +1,40 @@
+name: Build
+
+on:
+  push  
+
+jobs:
+  check:
+    name: Build installers from python project
+    strategy:
+      matrix:
+        fail-fast: false
+        os: ['windows-latest', 'ubuntu-latest, 'macos-latest']
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v2
+        with:
+          python-version: 3.12
+
+      - name: Install uv and pyinstaller
+        run: pip install uv pyinstaller
+
+      - name: Generate requirements.txt
+        run: uv export --format requirements-txt > requirements.txt
+        working-directory: ./lw_python
+
+      - name: Install requirements
+        run: pip install -r requirements.txt
+        working-directory: ./lw_python
+
+      - name: Build with pyinstaller
+        run: pyinstaller lw_python/main.py
+        working-directory: ./lw_python
+        
+      - uses: actions/upload-artifact@v2
+        with:
+          path: dist/*
+        working-directory: ./lw_python
