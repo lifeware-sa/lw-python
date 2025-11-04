@@ -35,4 +35,7 @@ jobs:
         
       - uses: actions/upload-artifact@v5
         with:
+          name: lw-python-${{ matrix.os }}
+          include-hidden-files: true
           path: lw_python/dist/*
+          
