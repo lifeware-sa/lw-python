@@ -30,7 +30,7 @@ jobs:
         working-directory: ./lw_python
 
       - name: Build with pyinstaller
-        run: pyinstaller lw_python/main.py
+        run: pyinstaller main.py
         working-directory: ./lw_python
         
       - uses: actions/upload-artifact@v5
