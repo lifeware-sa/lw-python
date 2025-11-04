@@ -35,5 +35,4 @@ jobs:
         
       - uses: actions/upload-artifact@v2
         with:
-          path: dist/*
-        working-directory: ./lw_python
+          path: lw_python/dist/*
