@@ -8,3 +8,8 @@ dependencies = [
     "amazon-textract-textractor>=1.9.2",
     "click>=8.3.0",
 ]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.4.2",
+]
