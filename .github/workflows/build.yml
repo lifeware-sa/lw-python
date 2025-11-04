@@ -12,11 +12,11 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - name: Check out the repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
-      - uses: actions/setup-python@v2
+      - uses: actions/setup-python@v6
         with:
-          python-version: 3.12
+          python-version: 3.14
 
       - name: Install uv and pyinstaller
         run: pip install uv pyinstaller
@@ -33,6 +33,6 @@ jobs:
         run: pyinstaller lw_python/main.py
         working-directory: ./lw_python
         
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v5
         with:
           path: lw_python/dist/*
