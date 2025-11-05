@@ -1,13 +1,19 @@
-from pathlib import Path
-import json
+from . import assets
+from . import expecteds
 
 from ..textract import textract_json_result_to_md
 
-test_dir = Path(__file__).parent
-assets_path = test_dir / 'assets'
+def _test_textract_result_to_md(asset, expected: str):
+    result = textract_json_result_to_md(asset)
+    assert result == expected
 
-def test_textract_json_result_to_md():
-    with open(assets_path / 'textract_result.json', 'r') as textract_result:
-        result = textract_json_result_to_md(json.load(textract_result))
-    with open(assets_path / 'textract_result.md', 'w') as res:
-        res.write(result)
+def test_textract_detect_result_to_md():
+    textract_answer = assets.textract_detect_result()
+    expected_result = expecteds.textract_detect_result()
+    _test_textract_result_to_md(textract_answer, expected_result)
+
+def test_textract_analyze_result_to_md():
+    textract_answer = assets.textract_analyze_result()
+    expected_result = expecteds.textract_analyze_result()
+    _test_textract_result_to_md(textract_answer, expected_result)
+    
