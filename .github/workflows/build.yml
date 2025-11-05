@@ -22,7 +22,7 @@ jobs:
         run: pip install uv pyinstaller
 
       - name: Generate requirements.txt
-        run: uv export --format requirements-txt > requirements.txt
+        run: uv export --no-dev --format requirements-txt > requirements.txt
         working-directory: ./lw_python
 
       - name: Install requirements
