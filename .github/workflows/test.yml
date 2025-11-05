@@ -1,0 +1,26 @@
+name: Test
+
+on:
+  push  
+
+jobs:
+  check:
+    name: Test with pytest
+    strategy:
+      matrix:
+        os: ['ubuntu-latest']
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: 3.14
+
+      - name: Install uv
+        run: pip install uv
+
+      - name: Run tests with uv
+        run: uv run pytest
+        working-directory: ./lw_python
