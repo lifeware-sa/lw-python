@@ -9,7 +9,7 @@ jobs:
     name: Build installers from python project
     strategy:
       matrix:
-        os: ['windows-latest', 'ubuntu-latest', 'ubuntu-latest-arm', 'macos-latest']
+        os: ['windows-latest', 'ubuntu-latest', 'ubuntu-24.04-arm', 'macos-latest']
     runs-on: ${{ matrix.os }}
     steps:
       - name: Check out the repo
