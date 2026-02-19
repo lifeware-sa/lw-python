@@ -1,7 +1,7 @@
 from . import assets
 from . import expecteds
 
-from ..textract import textract_json_result_to_md
+from textract import textract_json_result_to_md
 
 def _test_textract_result_to_md(asset, expected: str):
     result = textract_json_result_to_md(asset)

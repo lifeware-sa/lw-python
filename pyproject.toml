@@ -14,3 +14,12 @@ dependencies = [
 dev = [
     "pytest>=8.4.2",
 ]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+python_files = ["test_*.py"]
+python_functions = ["test_*"]
+addopts = [
+    "--import-mode=importlib"  # Recommended for modern projects to avoid sys.path issues]
+]
