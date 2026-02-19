@@ -27,7 +27,7 @@ sync-dependencies:
     uv sync --all-packages --all-groups --all-extras
 
 build-package:
-    uv build
+    pyinstaller src/textract/main.py
 
 run-tests:
     uv run pytest -vv

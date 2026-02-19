@@ -12,31 +12,15 @@ jobs:
         os: ['windows-latest', 'ubuntu-latest', 'ubuntu-24.04-arm', 'macos-latest']
     runs-on: ${{ matrix.os }}
     steps:
-      - name: Check out the repo
-        uses: actions/checkout@v5
-
-      - uses: actions/setup-python@v6
-        with:
-          python-version: 3.14
-
-      - name: Install uv and pyinstaller
-        run: pip install uv pyinstaller
-
-      - name: Generate requirements.txt
-        run: uv export --no-dev --format requirements-txt > requirements.txt
-        working-directory: ./lw_python
-
-      - name: Install requirements
-        run: pip install -r requirements.txt
-        working-directory: ./lw_python
-
-      - name: Build with pyinstaller
-        run: pyinstaller main.py
-        working-directory: ./lw_python
-        
+      - name: Check out repository
+        uses: actions/checkout@v6
+      - name: Prepare repository
+        uses: ./.github/actions/prepare
+      - name: Build 
+        run: just package
       - uses: actions/upload-artifact@v5
         with:
           name: lw-python-${{ matrix.os }}
           include-hidden-files: true
-          path: lw_python/dist/*
+          path: ./dist/*
           
