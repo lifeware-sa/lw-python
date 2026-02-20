@@ -16,6 +16,8 @@ jobs:
         uses: actions/checkout@v6
       - name: Prepare repository
         uses: ./.github/actions/prepare
+      - name: Run tests
+        run: just test
       - name: Build 
         run: just build
       - uses: actions/upload-artifact@v5
