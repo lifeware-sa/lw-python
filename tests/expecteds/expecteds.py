@@ -10,7 +10,7 @@ def _get_raw_content(path: str):
     with open(path, 'r') as input:
         content = input.read()
         if os.name == "nt":
-            content = content.replace("\r\n", "\n")
+            content = content.replace("\n", "\r\n")
         return content
     
 def textract_analyze_result():
