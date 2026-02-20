@@ -1,1 +1,1 @@
-from .assets import assets_path, textract_analyze_result, textract_detect_result
+from .assets import assets_path, textract_analyze_result, textract_detect_result, pdf_file_path, docx_file_path

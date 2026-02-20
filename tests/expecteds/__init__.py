@@ -1,1 +1,1 @@
-from .expecteds import expecteds_path, textract_analyze_result, textract_detect_result
+from .expecteds import expecteds_path, textract_analyze_result, textract_detect_result, docling_expected, markitdown_pdf_expected, markitdown_docx_expected
