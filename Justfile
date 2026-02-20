@@ -1,6 +1,7 @@
 #!/usr/bin/env -S just --justfile
 
-set shell := if os() == "windows" { ["powershell", "-Command"] } else { ["/bin/bash", "-c"] }
+set windows-shell := ["powershell.exe", "-c"]
+set shell := ["/bin/bash", "-c"]
 
 alias build := build-package
 alias lock := check-lockfile
