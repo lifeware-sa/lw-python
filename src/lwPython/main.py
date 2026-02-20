@@ -21,12 +21,32 @@ def textract_to_markdown(input, output):
         print(f"An error occurred: {e}")
 
 @click.command(name='docling-pdf-to-md')
+@click.option('-f', '--from', 'input', type=click.Path(exists=True), help="Input PDF file")
+@click.option('-t', '--to', 'output', type=click.Path(), help="Output Markdown file")
 def docling_pdf_to_markdown(input, output):
-    pass
+    try:
+        with open(input, 'r') as json_file:
+            markdown_text = docling_pdf_to_md(json.load(json_file))
+
+        with open(output, 'w') as md_file:
+            md_file.write(markdown_text)
+
+    except Exception as e:
+        print(f"An error occurred: {e}")
 
 @click.command(name='markitdown-file-to-md')
+@click.option('-f', '--from', 'input', type=click.Path(exists=True), help="Input PDF or DOCX file")
+@click.option('-t', '--to', 'output', type=click.Path(), help="Output Markdown file")
 def markitdown_file_to_markdown(input, output):
-    pass
+    try:
+        with open(input, 'r') as json_file:
+            markdown_text = markitdown_file_to_md(json.load(json_file))
+
+        with open(output, 'w') as md_file:
+            md_file.write(markdown_text)
+
+    except Exception as e:
+        print(f"An error occurred: {e}")
 
 cli.add_command(docling_pdf_to_markdown)
 cli.add_command(markitdown_file_to_markdown)
