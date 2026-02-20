@@ -14,14 +14,7 @@ def markitdown_file_to_md(path: str)-> str:
     return parsing.text_content
 
 def docling_pdf_to_md(path: str) -> str:
-    pdf_options = PdfPipelineOptions(generate_picture_images=False)
-
-    converter = DocumentConverter(
-        format_options={
-            InputFormat.PDF: PdfFormatOption(pipeline_options=pdf_options)
-        }
-    )
-
+    converter = DocumentConverter()
     doc = converter.convert(path).document
     return doc.export_to_markdown()
 
