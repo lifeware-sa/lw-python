@@ -8,6 +8,7 @@ alias setup := set-up-project
 alias sync := sync-dependencies
 alias tests := run-tests
 alias venv := create-virtual-environment
+alias clean := clean-generated-files
 
 default:
     just --list
@@ -17,6 +18,9 @@ install-python:
 
 create-virtual-environment:
     uv venv --seed --allow-existing
+
+clean-generated-files:
+    uv run --active --script --quiet scripts/clean.py
 
 check-lockfile:
     uv lock --check
