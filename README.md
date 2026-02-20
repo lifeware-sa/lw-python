@@ -56,3 +56,27 @@ python -m lwPython.main textract-to-md --from <input.json> --to <output.md>
 **Options:**
 - `-f, --from <path>`: Input JSON file from AWS Textract (required)
 - `-t, --to <path>`: Output Markdown file path (required)
+
+### docling-pdf-to-md
+Converts a PDF to Markdown using Docling.
+
+**Usage:**
+```bash
+python -m lwPython.main docling-pdf-to-md --from <input.pdf> --to <output.md>
+```
+
+**Options:**
+- `-f, --from <path>`: Input PDF file (required)
+- `-t, --to <path>`: Output Markdown file path (required)
+
+### markitdown-file-to-md
+Converts a PDF or DOCX file to Markdown using MarkItDown.
+
+**Usage:**
+```bash
+python -m lwPython.main markitdown-file-to-md --from <input.pdf|input.docx> --to <output.md>
+```
+
+**Options:**
+- `-f, --from <path>`: Input PDF or DOCX file (required)
+- `-t, --to <path>`: Output Markdown file path (required)
