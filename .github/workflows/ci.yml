@@ -17,7 +17,7 @@ jobs:
       - name: Prepare repository
         uses: ./.github/actions/prepare
       - name: Run tests
-        run: just test
+        run: just tests
       - name: Build 
         run: just build
       - uses: actions/upload-artifact@v5
