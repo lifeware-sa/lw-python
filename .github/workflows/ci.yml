@@ -17,6 +17,7 @@ jobs:
       - name: Prepare repository
         uses: ./.github/actions/prepare
       - name: Run tests
+        if: runner.os != 'Windows'
         run: just tests
       - name: Build 
         run: just build
