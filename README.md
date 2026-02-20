@@ -10,6 +10,37 @@ This project uses [**uv**](https://docs.astral.sh/uv/) for Python package manage
 
 Run `just --list` to see all available commands.
 
+## Setup
+
+### Prerequisites
+
+Install the required system dependencies:
+
+**macOS:**
+```bash
+brew install ffmpeg
+```
+
+**Ubuntu/Debian:**
+```bash
+sudo apt-get install ffmpeg
+```
+
+**Windows:**
+Download from [ffmpeg.org](https://ffmpeg.org/download.html) or use:
+```bash
+choco install ffmpeg
+```
+
+### Installation
+
+Run the setup command to configure the project:
+```bash
+just setup
+```
+
+This will install Python, create a virtual environment, and sync all dependencies.
+
 ## CLI Commands
 
 The project provides the following Click commands:
