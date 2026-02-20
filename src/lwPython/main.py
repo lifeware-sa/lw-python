@@ -1,6 +1,6 @@
 import click
 import json
-from textract._utils import *
+from lwPython._utils import *
 
 @click.group()
 def cli():

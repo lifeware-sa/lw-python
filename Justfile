@@ -31,7 +31,7 @@ sync-dependencies:
     uv sync --all-packages --all-groups --all-extras
 
 build-package:
-    uv run pyinstaller src/textract/main.py
+    uv run pyinstaller src/lwPython/main.py
 
 run-tests:
     uv run pytest -vv
