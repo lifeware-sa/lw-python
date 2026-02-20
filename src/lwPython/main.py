@@ -25,8 +25,7 @@ def textract_to_markdown(input, output):
 @click.option('-t', '--to', 'output', type=click.Path(), help="Output Markdown file")
 def docling_pdf_to_markdown(input, output):
     try:
-        with open(input, 'r') as json_file:
-            markdown_text = docling_pdf_to_md(json.load(json_file))
+        markdown_text = docling_pdf_to_md(input)
 
         with open(output, 'w') as md_file:
             md_file.write(markdown_text)
@@ -39,8 +38,7 @@ def docling_pdf_to_markdown(input, output):
 @click.option('-t', '--to', 'output', type=click.Path(), help="Output Markdown file")
 def markitdown_file_to_markdown(input, output):
     try:
-        with open(input, 'r') as json_file:
-            markdown_text = markitdown_file_to_md(json.load(json_file))
+        markdown_text = markitdown_file_to_md(input)
 
         with open(output, 'w') as md_file:
             md_file.write(markdown_text)
