@@ -20,6 +20,16 @@ def textract_to_markdown(input, output):
     except Exception as e:
         print(f"An error occurred: {e}")
 
+@click.command(name='docling-pdf-to-md')
+def docling_pdf_to_markdown(input, output):
+    pass
+
+@click.command(name='markitdown-file-to-md')
+def markitdown_file_to_markdown(input, output):
+    pass
+
+cli.add_command(docling_pdf_to_markdown)
+cli.add_command(markitdown_file_to_markdown)
 cli.add_command(textract_to_markdown)
 
 if __name__ == '__main__':
