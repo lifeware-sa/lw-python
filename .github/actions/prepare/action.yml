@@ -13,8 +13,6 @@ runs:
       uses: extractions/setup-just@v3
       with:
         just-version: 1.42.4
-    - name: Install `ffmpeg`
-      uses: FedericoCarboni/setup-ffmpeg@v3
     - name: Set up project
       shell: bash
       run: just setup
