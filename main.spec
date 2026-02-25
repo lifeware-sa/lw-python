@@ -60,6 +60,8 @@ if compat.is_linux:
         'nvidia.nvtx',
     ]
 
+use_strip = not compat.is_win
+use_upx = not compat.is_win
 
 a = Analysis(
     ['src/lwPython/main.py'],
@@ -84,8 +86,8 @@ exe = EXE(
     name='main',
     debug=False,
     bootloader_ignore_signals=False,
-    strip=True,
-    upx=True,
+    strip=use_strip,
+    upx=use_upx,
     console=True,
     disable_windowed_traceback=False,
     argv_emulation=False,
@@ -97,8 +99,8 @@ coll = COLLECT(
     exe,
     a.binaries,
     a.datas,
-    strip=True,
-    upx=True,
+    strip=use_strip,
+    upx=use_upx,
     upx_exclude=[],
     name='main',
 )
