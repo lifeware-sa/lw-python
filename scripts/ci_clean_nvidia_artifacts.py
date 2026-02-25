@@ -22,7 +22,6 @@ if purelib:
 
 static_targets = [
     Path("nvidia"),
-    Path("torch") / "lib" / "libtorch_cuda.so",
 ]
 
 removed: list[str] = []
@@ -34,7 +33,10 @@ artifact_roots = [
 
 artifact_targets = [
     Path("nvidia"),
-    Path("torch") / "lib" / "libtorch_cuda.so",
+]
+
+artifact_globs = [
+    "torch/lib/libtorch_cuda*.so*",
 ]
 
 for base_path in sorted(candidate_paths):
@@ -49,11 +51,6 @@ for base_path in sorted(candidate_paths):
             else:
                 target_path.unlink(missing_ok=True)
             removed.append(str(target_path))
-
-    for torch_cuda_lib in base_path.glob("torch/lib/libtorch_cuda*.so*"):
-        if torch_cuda_lib.exists():
-            torch_cuda_lib.unlink(missing_ok=True)
-            removed.append(str(torch_cuda_lib))
 
     for dist_info in base_path.glob("nvidia*dist-info"):
         shutil.rmtree(dist_info, ignore_errors=True)
@@ -72,14 +69,15 @@ for artifact_root in artifact_roots:
                 target_path.unlink(missing_ok=True)
             removed.append(str(target_path))
 
-    for torch_cuda_lib in artifact_root.glob("torch/lib/libtorch_cuda*.so*"):
-        if torch_cuda_lib.exists():
-            torch_cuda_lib.unlink(missing_ok=True)
-            removed.append(str(torch_cuda_lib))
-
     for dist_info in artifact_root.glob("nvidia*dist-info"):
         shutil.rmtree(dist_info, ignore_errors=True)
         removed.append(str(dist_info))
+
+    for pattern in artifact_globs:
+        for matched_file in artifact_root.glob(pattern):
+            if matched_file.exists():
+                matched_file.unlink(missing_ok=True)
+                removed.append(str(matched_file))
 
 if removed:
     print("Removed NVIDIA artifacts:")
