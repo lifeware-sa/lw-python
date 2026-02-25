@@ -1,0 +1,8 @@
+name: Clean NVIDIA artifacts
+description: Remove NVIDIA-related folders from the Python environment used by CI
+runs:
+  using: composite
+  steps:
+    - name: Remove NVIDIA artifacts
+      shell: bash
+      run: uv run --active --script scripts/ci_clean_nvidia_artifacts.py
