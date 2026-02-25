@@ -31,8 +31,8 @@ set-up-project: install-python create-virtual-environment sync-dependencies
 sync-dependencies:
     uv sync --all-packages --all-groups --all-extras
 
-build-package:
-    uv run pyinstaller src/lwPython/main.py
+build-package: clean-generated-files
+    uv run pyinstaller main.spec
 
 run-tests:
     uv run pytest -vv

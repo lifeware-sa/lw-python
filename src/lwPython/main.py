@@ -1,5 +1,6 @@
 import click
 import json
+import multiprocessing
 from lwPython._utils import *
 
 @click.group()
@@ -45,4 +46,5 @@ cli.add_command(markitdown_file_to_markdown)
 cli.add_command(textract_to_markdown)
 
 if __name__ == '__main__':
+    multiprocessing.freeze_support()
     cli()
