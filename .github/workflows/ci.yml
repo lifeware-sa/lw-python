@@ -9,7 +9,10 @@ on:
       - '*.spec'
       - '**/*.spec'
       - 'pyproject.toml'
-      - 'Justfile' 
+      - 'Justfile'
+      - '.github/workflows/**'
+      - '.github/actions/**'
+      - 'scripts/ci_*'
 
 jobs:
   check:
