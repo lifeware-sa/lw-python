@@ -32,6 +32,12 @@ Download from [ffmpeg.org](https://ffmpeg.org/download.html) or use:
 choco install ffmpeg
 ```
 
+If the packaged executable fails with an error such as `Error loading Python DLL`, install the **Microsoft Visual C++ Redistributable (2015-2022)**:
+
+```bash
+winget install Microsoft.VCRedist.2015+.x64
+```
+
 ### Installation
 
 Run the setup command to configure the project:
