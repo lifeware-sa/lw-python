@@ -25,11 +25,15 @@ datas = (
     collect_data_files('docling')
     + collect_data_files('docling_parse')
     + collect_data_files('magika')
+    + collect_data_files('rapidocr')
+    + collect_data_files('pypdfium2_raw')
     + copy_metadata('docling')
     + copy_metadata('docling-core')
     + copy_metadata('docling-ibm-models')
     + copy_metadata('docling-parse')
     + copy_metadata('markitdown')
+    + copy_metadata('rapidocr')
+    + copy_metadata('pypdfium2')
 )
 
 excludes = [
