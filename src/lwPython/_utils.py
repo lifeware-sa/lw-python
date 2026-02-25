@@ -9,8 +9,18 @@ def markitdown_file_to_md(path: str)-> str:
     return parsing.text_content
 
 def docling_pdf_to_md(path: str) -> str:
-    from docling.document_converter import DocumentConverter
-    converter = DocumentConverter()
+    from docling.datamodel.base_models import InputFormat
+    from docling.datamodel.pipeline_options import PdfPipelineOptions
+    from docling.document_converter import DocumentConverter, PdfFormatOption
+
+    pipeline_options = PdfPipelineOptions()
+    pipeline_options.do_ocr = False
+
+    converter = DocumentConverter(
+        format_options={
+            InputFormat.PDF: PdfFormatOption(pipeline_options=pipeline_options)
+        }
+    )
     doc = converter.convert(path).document
     return doc.export_to_markdown()
 
