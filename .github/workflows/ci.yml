@@ -31,9 +31,6 @@ jobs:
         run: just tests
       - name: Build 
         run: just build
-      - name: Clean NVIDIA artifacts
-        if: runner.os == 'Linux'
-        uses: ./.github/actions/clean-nvidia
       - uses: actions/upload-artifact@v5
         with:
           name: lw-python-${{ matrix.os }}

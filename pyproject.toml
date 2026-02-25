@@ -10,6 +10,8 @@ dependencies = [
     "docling>=2.74.0",
     "markitdown[all]>=0.1.4",
     "pandas>=2.3.3",
+    "torch>=2.10.0; sys_platform == 'linux'",
+    "torchvision>=0.25.0; sys_platform == 'linux'",
 ]
 
 [dependency-groups]
