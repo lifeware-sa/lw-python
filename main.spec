@@ -42,24 +42,6 @@ excludes = [
     'speech_recognition',
 ]
 
-if compat.is_linux:
-    excludes += [
-        'nvidia',
-        'nvidia.cublas',
-        'nvidia.cuda_cupti',
-        'nvidia.cuda_nvrtc',
-        'nvidia.cuda_runtime',
-        'nvidia.cudnn',
-        'nvidia.cufft',
-        'nvidia.curand',
-        'nvidia.cusolver',
-        'nvidia.cusparse',
-        'nvidia.cusparselt',
-        'nvidia.nccl',
-        'nvidia.nvjitlink',
-        'nvidia.nvtx',
-    ]
-
 use_strip = not compat.is_win
 use_upx = not compat.is_win
 
