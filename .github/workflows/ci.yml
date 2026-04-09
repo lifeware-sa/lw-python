@@ -1,5 +1,8 @@
 name: Build
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 on:
   push:
     branches: [main]
@@ -31,7 +34,7 @@ jobs:
         run: just tests
       - name: Build 
         run: just build
-      - uses: actions/upload-artifact@v5
+      - uses: actions/upload-artifact@v6
         with:
           name: lw-python-${{ matrix.os }}
           include-hidden-files: true
