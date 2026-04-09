@@ -3,7 +3,6 @@
 from pathlib import Path
 
 from PyInstaller import compat
-from PyInstaller.utils.hooks import collect_data_files, copy_metadata
 
 
 Path('build/main').mkdir(parents=True, exist_ok=True)
@@ -11,30 +10,11 @@ Path('dist').mkdir(parents=True, exist_ok=True)
 
 
 hiddenimports = [
-    'docling.backend.docling_parse_v2_backend',
-    'docling.backend.docling_parse_v4_backend',
-    'docling.backend.pypdfium2_backend',
-    'docling.models.plugins',
-    'docling.models.plugins.defaults',
-    'markitdown.__main__',
     'textractor.cli',
     'textractor.cli.cli',
 ]
 
-datas = (
-    collect_data_files('docling')
-    + collect_data_files('docling_parse')
-    + collect_data_files('magika')
-    + collect_data_files('rapidocr')
-    + collect_data_files('pypdfium2_raw')
-    + copy_metadata('docling')
-    + copy_metadata('docling-core')
-    + copy_metadata('docling-ibm-models')
-    + copy_metadata('docling-parse')
-    + copy_metadata('markitdown')
-    + copy_metadata('rapidocr')
-    + copy_metadata('pypdfium2')
-)
+datas = []
 
 excludes = [
     'pytest',
