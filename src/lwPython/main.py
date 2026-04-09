@@ -19,30 +19,30 @@ def textract_to_markdown(input, output):
     except Exception as e:
         print(f"An error occurred: {e}")
 
-@click.command(name='docling-pdf-to-md')
-@click.option('-f', '--from', 'input', type=click.Path(exists=True), help="Input PDF file")
-@click.option('-t', '--to', 'output', type=click.Path(), help="Output Markdown file")
-def docling_pdf_to_markdown(input, output):
-    try:
-        markdown_text = docling_pdf_to_md(input)
-        save_markdown(markdown_text, output)
+# @click.command(name='docling-pdf-to-md')
+# @click.option('-f', '--from', 'input', type=click.Path(exists=True), help="Input PDF file")
+# @click.option('-t', '--to', 'output', type=click.Path(), help="Output Markdown file")
+# def docling_pdf_to_markdown(input, output):
+#     try:
+#         markdown_text = docling_pdf_to_md(input)
+#         save_markdown(markdown_text, output)
 
-    except Exception as e:
-        print(f"An error occurred: {e}")
+#     except Exception as e:
+#         print(f"An error occurred: {e}")
 
-@click.command(name='markitdown-file-to-md')
-@click.option('-f', '--from', 'input', type=click.Path(exists=True), help="Input PDF or DOCX file")
-@click.option('-t', '--to', 'output', type=click.Path(), help="Output Markdown file")
-def markitdown_file_to_markdown(input, output):
-    try:
-        markdown_text = markitdown_file_to_md(input)
-        save_markdown(markdown_text, output)
+# @click.command(name='markitdown-file-to-md')
+# @click.option('-f', '--from', 'input', type=click.Path(exists=True), help="Input PDF or DOCX file")
+# @click.option('-t', '--to', 'output', type=click.Path(), help="Output Markdown file")
+# def markitdown_file_to_markdown(input, output):
+#     try:
+#         markdown_text = markitdown_file_to_md(input)
+#         save_markdown(markdown_text, output)
 
-    except Exception as e:
-        print(f"An error occurred: {e}")
+#     except Exception as e:
+#         print(f"An error occurred: {e}")
 
-cli.add_command(docling_pdf_to_markdown)
-cli.add_command(markitdown_file_to_markdown)
+# cli.add_command(docling_pdf_to_markdown)
+# cli.add_command(markitdown_file_to_markdown)
 cli.add_command(textract_to_markdown)
 
 if __name__ == '__main__':
