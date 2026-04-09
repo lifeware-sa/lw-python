@@ -7,10 +7,10 @@ requires-python = ">=3.12"
 dependencies = [
     "amazon-textract-textractor>=1.9.2",
     "click>=8.3.0",
+    "pandas>=2.3.3",
     # Inactive (related commands/tests are currently commented out):
     # "docling>=2.74.0",
     # "markitdown[all]>=0.1.4",
-    # "pandas>=2.3.3",
     # "torch>=2.10.0; sys_platform == 'linux'",
     # "torchvision>=0.25.0; sys_platform == 'linux'",
 ]
