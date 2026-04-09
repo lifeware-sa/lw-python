@@ -7,11 +7,12 @@ requires-python = ">=3.12"
 dependencies = [
     "amazon-textract-textractor>=1.9.2",
     "click>=8.3.0",
-    "docling>=2.74.0",
-    "markitdown[all]>=0.1.4",
-    "pandas>=2.3.3",
-    "torch>=2.10.0; sys_platform == 'linux'",
-    "torchvision>=0.25.0; sys_platform == 'linux'",
+    # Inactive (related commands/tests are currently commented out):
+    # "docling>=2.74.0",
+    # "markitdown[all]>=0.1.4",
+    # "pandas>=2.3.3",
+    # "torch>=2.10.0; sys_platform == 'linux'",
+    # "torchvision>=0.25.0; sys_platform == 'linux'",
 ]
 
 [dependency-groups]
@@ -32,11 +33,11 @@ addopts = [
     "--import-mode=importlib"  # Recommended for modern projects to avoid sys.path issues
 ]
 
-[tool.uv.sources]
-torch = [{ index = "pytorch-cpu", marker = "sys_platform == 'linux'" }]
-torchvision = [{ index = "pytorch-cpu", marker = "sys_platform == 'linux'" }]
+# [tool.uv.sources]
+# torch = [{ index = "pytorch-cpu", marker = "sys_platform == 'linux'" }]
+# torchvision = [{ index = "pytorch-cpu", marker = "sys_platform == 'linux'" }]
 
-[[tool.uv.index]]
-name = "pytorch-cpu"
-url = "https://download.pytorch.org/whl/cpu"
-explicit = true
+# [[tool.uv.index]]
+# name = "pytorch-cpu"
+# url = "https://download.pytorch.org/whl/cpu"
+# explicit = true
