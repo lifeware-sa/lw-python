@@ -12,10 +12,9 @@ on:
       - '*.spec'
       - '**/*.spec'
       - 'pyproject.toml'
-      - 'Justfile'
+      - 'uv.lock'
       - '.github/workflows/**'
       - '.github/actions/**'
-      - 'scripts/ci_*'
 
 jobs:
   check:
@@ -30,9 +29,9 @@ jobs:
       - name: Prepare repository
         uses: ./.github/actions/prepare
       - name: Run tests
-        run: just tests
+        run: uv run pytest -vv
       - name: Build 
-        run: just build
+        run: uv run pyinstaller --noconfirm --clean main.spec
       - uses: actions/upload-artifact@v6
         with:
           name: lw-python-${{ matrix.os }}

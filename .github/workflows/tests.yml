@@ -11,7 +11,6 @@ on:
       - 'tests/**'
       - 'pyproject.toml'
       - 'uv.lock'
-      - 'Justfile'
       - '.github/workflows/**'
       - '.github/actions/**'
 
@@ -28,4 +27,4 @@ jobs:
       - name: Prepare repository
         uses: ./.github/actions/prepare
       - name: Run tests
-        run: just tests
+        run: uv run pytest -vv
