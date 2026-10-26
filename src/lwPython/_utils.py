@@ -1,5 +1,5 @@
 def save_markdown(content: str, output_path: str):
-    with open(output_path, "w", encoding="utf-8") as f:
+    with open(output_path, "w", encoding="utf-8", newline="\n") as f:
         f.write(content)
 
 def textract_json_result_to_md(textract_json_result) -> str:

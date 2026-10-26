@@ -12,7 +12,7 @@ def cli():
 @click.option('-t', '--to', 'output', type=click.Path(), help="Output Markdown file")
 def textract_to_markdown(input, output):
     try:
-        with open(input, 'r') as json_file:
+        with open(input, 'r', encoding='utf-8') as json_file:
             markdown_text = textract_json_result_to_md(json.load(json_file))
         save_markdown(markdown_text, output)
 

@@ -49,7 +49,7 @@ With the packaged executable (built by `just build` into `dist/main/`):
 ```
 
 **Options:**
-- `-f, --from <path>`: Input JSON file containing a raw AWS Textract response (`DetectDocumentText` or `AnalyzeDocument`). Must exist.
-- `-t, --to <path>`: Output Markdown file path (written as UTF-8).
+- `-f, --from <path>`: Input UTF-8 JSON file containing a raw AWS Textract response (`DetectDocumentText` or `AnalyzeDocument`). Must exist.
+- `-t, --to <path>`: Output Markdown file path (written as UTF-8 with LF line endings on every OS).
 
 Both options are needed for the conversion, but they are not enforced by the CLI: if either is missing, or the conversion fails, the command prints `An error occurred: <message>` to stdout and still exits with code `0`. Callers should check the output for that message (or check that the output file was created) to detect failures.
