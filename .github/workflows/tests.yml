@@ -1,0 +1,31 @@
+name: Tests
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+on:
+  push:
+    branches: ['**']
+    paths:
+      - 'src/**'
+      - 'tests/**'
+      - 'pyproject.toml'
+      - 'uv.lock'
+      - 'Justfile'
+      - '.github/workflows/**'
+      - '.github/actions/**'
+
+jobs:
+  test:
+    name: Run tests
+    strategy:
+      matrix:
+        os: ['windows-latest', 'ubuntu-latest', 'ubuntu-24.04-arm', 'macos-latest']
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+      - name: Prepare repository
+        uses: ./.github/actions/prepare
+      - name: Run tests
+        run: just tests
