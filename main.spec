@@ -19,11 +19,6 @@ datas = []
 excludes = [
     'pytest',
     '_pytest',
-    'tensorflow',
-    'tensorboard',
-    'torch.utils.tensorboard',
-    'torchaudio',
-    'speech_recognition',
 ]
 
 use_strip = not compat.is_win
